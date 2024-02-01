@@ -1,0 +1,42 @@
+# Exclude common files and directories
+__pycache__
+*.db
+*.sqlite
+*.log
+*.log.*
+*.log-*.*
+*.swp
+*.swo
+*.swn
+*.swh
+.DS_Store
+.vscode/
+.idea/
+.cache/
+*.md
+LICENSE
+*.yml
+*.yaml
+*.gitignore
+
+# Exclude build files and directories
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Exclude local environment files
+.env
+
+# Exclude version control directories
+.git
+.gitignore
+.gitattributes
+.gitmodules
+.svn
+.bzr
+
+# Exclude Docker-related files
+Dockerfile
+docker-compose.yml
+.dockerignore

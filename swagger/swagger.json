@@ -1,0 +1,124 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Hangman API",
+    "version": "1.0",
+    "description": "API for Hangman game"
+  },
+  "basePath": "/hangman_api",
+  "paths": {
+    "/games": {
+      "post": {
+        "summary": "Start a new Hangman game",
+        "description": "Start a new Hangman game.",
+        "tags": ["Hangman"],
+        "responses": {
+          "200": {
+            "description": "A new Hangman game has started.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "game_id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Get the status of all Hangman games",
+        "description": "Get the status of all Hangman games.",
+        "tags": ["Hangman"],
+        "responses": {
+          "200": {
+            "description": "A list of Hangman game status.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/games/{game_id}": {
+      "get": {
+        "summary": "Get the status of a Hangman game by ID",
+        "description": "Get the status of a specific Hangman game by ID.",
+        "tags": ["Hangman"],
+        "parameters": [
+          {
+            "name": "game_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The ID of the Hangman game."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The status of the Hangman game.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Hangman game not found."
+          }
+        }
+      },
+      "post": {
+        "summary": "Make a guess in a Hangman game",
+        "description": "Make a guess in a Hangman game.",
+        "tags": ["Hangman"],
+        "parameters": [
+          {
+            "name": "game_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The ID of the Hangman game."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The result of the guess.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Hangman game not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "End a Hangman game",
+        "description": "End a Hangman game.",
+        "tags": ["Hangman"],
+        "parameters": [
+          {
+            "name": "game_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The ID of the Hangman game."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Hangman game has ended.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "Hangman game not found."
+          }
+        }
+      }
+    }
+  }
+}

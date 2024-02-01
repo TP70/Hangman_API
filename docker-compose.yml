@@ -1,0 +1,14 @@
+version: '3'
+services:
+  hangman-app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      MONGO_URI: "mongodb://mongo:27017/hangman-api"
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
